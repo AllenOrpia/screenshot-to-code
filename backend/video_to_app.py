@@ -1,6 +1,7 @@
 # Load environment variables first
 
 from dotenv import load_dotenv
+from security import safe_command
 
 load_dotenv()
 
@@ -117,7 +118,7 @@ async def main():
     print(f"Output file path: {output_path}")
 
     # Show a notification
-    subprocess.run(["osascript", "-e", 'display notification "Coding Complete"'])
+    safe_command.run(subprocess.run, ["osascript", "-e", 'display notification "Coding Complete"'])
 
 
 asyncio.run(main())
