@@ -40,13 +40,9 @@ async def main():
     previous_html = ""
     if is_followup:
         previous_html_file = max(
-            [
-                os.path.join(OUTPUTS_DIR, f)
+            os.path.join(OUTPUTS_DIR, f)
                 for f in os.listdir(OUTPUTS_DIR)
-                if f.endswith(".html")
-            ],
-            key=os.path.getctime,
-        )
+                if f.endswith(".html"))
         with open(previous_html_file, "r") as file:
             previous_html = file.read()
 
